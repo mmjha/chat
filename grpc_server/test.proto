@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package test;
+
+import "google/protobuf/empty.proto";
+
+service TestController {
+    rpc List(TestListRequest) returns (stream Test) {}
+    rpc Create(Test) returns (Test) {}
+    rpc Retrieve(TestRetrieveRequest) returns (Test) {}
+    rpc Update(Test) returns (Test) {}
+    rpc Destroy(Test) returns (google.protobuf.Empty) {}
+}
+
+message Test {
+    int64 id = 1;
+    string code = 2;
+    string date = 3;
+    int32 count = 4;
+}
+
+message TestListRequest {
+}
+
+message TestRetrieveRequest {
+    int64 id = 1;
+}

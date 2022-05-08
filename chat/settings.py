@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'drf_yasg', # swagger
     'test_pep8',
-    'rest_framework', 
+    'rest_framework',
+    'django_grpc_framework', 
     'django_filters',
     'apptest',
 ]

@@ -19,6 +19,8 @@ from rest_framework.routers import DefaultRouter
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from apptest.views import TestViewSet
+from apptest.services import TestService
+from grpc_server import test_pb2_grpc
 
 router = DefaultRouter()
 router.register(r'api/test', TestViewSet)
@@ -45,3 +47,5 @@ urlpatterns = [
 ]
 urlpatterns += router.urls
 
+def grpc_handlers(server):
+    test_pb2_grpc.add_TestControllerServicer_to_server(TestService.as_servicer(), server)
