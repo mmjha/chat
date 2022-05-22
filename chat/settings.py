@@ -72,6 +72,13 @@ REST_FRAMEWORK = {
     ),
 }
 
+GRAPHENE = {
+    "SCHEMA": "chat.schema.schema",
+    "MIDDLEWARE": [
+        "graphql_jwt.middleware.JSONWebTokenMiddleware",
+    ],
+}
+
 ROOT_URLCONF = 'chat.urls'
 
 TEMPLATES = [
