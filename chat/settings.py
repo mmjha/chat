@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'django_grpc_framework', 
     'django_filters',
+    'graphene_django',
     'apptest',
 ]
 
@@ -149,3 +150,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 PROJECT_DIR = os.path.dirname(__file__)
 TEST_PEP8_DIRS = [os.path.dirname(PROJECT_DIR)]
+
+# graphql
+GRAPHENE = {
+    "SCHEMA": "chat.schema.schema"
+}

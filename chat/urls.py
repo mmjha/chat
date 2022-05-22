@@ -21,6 +21,7 @@ from drf_yasg.views import get_schema_view
 from apptest.views import TestViewSet
 from apptest.services import TestService
 from grpc_server import test_pb2_grpc
+from graphene_django.views import GraphQLView
 
 router = DefaultRouter()
 router.register(r'api/test', TestViewSet)
@@ -38,6 +39,7 @@ schema_view = get_schema_view(
     permission_classes=[permissions.AllowAny],
 )
 urlpatterns = [
+    path("graphql", GraphQLView.as_view(graphiql=True)),
     # path(r'swagger(?P<format>\.json|\.yaml)', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path(r'swagger/', schema_view.with_ui('swagger',
          cache_timeout=0), name='schema-swagger-ui'),

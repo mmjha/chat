@@ -1,5 +1,5 @@
 from django.db import models
-from apptest.managers import TestCustomManager
+from apptest.managers import TestCustomManager, TestInfoCustomManager
 
 
 class Test(models.Model):
@@ -14,3 +14,10 @@ class Test(models.Model):
 
     class Meta:
         db_table = "test"
+
+
+class TestInfo(models.Model):
+    objects = models.Manager()
+    custom_objects = TestInfoCustomManager()
+    test = models.ForeignKey("Test", on_delete=models.CASCADE)
+

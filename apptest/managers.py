@@ -12,3 +12,9 @@ class TestCustomManager(models.Manager):
         return self.annotate(
             num_responses=Coalesce(models.Count("count"), 0)
         )
+
+class TestInfoCustomManager(models.Manager):
+    """
+    TestInfo Custom manager Description
+    """
+    pass
